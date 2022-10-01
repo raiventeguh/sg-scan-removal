@@ -29,7 +29,7 @@ jobs:
           python -m pip install --upgrade pipenv wheel
           pipenv requirements --dev > requirements.txt
           python -m pip install --force-reinstall -r requirements.txt
-      - name: run scan only
+      - name: run scan and revoke
         env: 
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
