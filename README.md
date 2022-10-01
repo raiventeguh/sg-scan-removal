@@ -36,3 +36,9 @@ cidr scanned:  ['0.0.0.0/0']
 ----- Scanning Result -------
 No loose security groups rules found
 ```
+
+
+# Note
+https://aws.amazon.com/blogs/security/how-to-continuously-audit-and-limit-security-groups-with-aws-firewall-manager/
+
+AWS already have high level solution for auditing security groups. 

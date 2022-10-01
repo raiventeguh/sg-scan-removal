@@ -23,12 +23,15 @@ def scan_sgr(ports=[], excluded_tags=None, cidr=[]) -> List:
 
 
 def revoke_sgr(sg_rules):
+    revoked_result = []
     for revoke in sg_rules:
         result = ec2.revoke_security_group_ingress(
             SecurityGroupRuleIds=[revoke["SecurityGroupRuleId"]],
             GroupId=revoke["GroupId"],
         )
+        revoked_result.append(result)
         print(result)
+    return revoked_result    
 
 
 if __name__ == "__main__":
