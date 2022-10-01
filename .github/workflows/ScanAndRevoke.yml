@@ -27,7 +27,8 @@ jobs:
       - name: Install Pipenv
         run: |
           python -m pip install --upgrade pipenv wheel
-          pipenv install --deploy --dev
+          pipenv requirements --dev > requirements.txt
+          python -m pip install --force-reinstall -r requirements.txt
       - name: run scan only
         env: 
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
