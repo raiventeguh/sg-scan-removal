@@ -29,12 +29,13 @@ jobs:
           python -m pip install --upgrade pipenv wheel
       - name: run scan only
         env: 
-          AWS_ACCESS_KEY: ""
-          AWS_SECRET_ACCESS_KEY: ""
-          AWS_DEFAULT_REGION: ""
-          PORTS: ""
-          CIDR: ""
-          EXCLUDED_TAGS_KEY: ""
-          EXCLUDED_TAGS_VALUE: ""
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          # below here don't really need to be in secrets
+          PORTS: ${{ secrets.PORTS }}
+          CIDR: ${{ secrets.CIDR }}
+          EXCLUDED_TAGS_KEY: ${{ secrets.EXCLUDED_TAGS_KEY }}
+          EXCLUDED_TAGS_VALUE: ${{ secrets.EXCLUDED_TAGS_VALUE }}
         run: |
           python main.py True
